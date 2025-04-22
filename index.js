@@ -32,6 +32,8 @@ let mouseDown = false;
 window.addEventListener("mousedown", () => {
   mouseDown = true;
   h1.style.display = "none";
+
+  bgm.play().catch(err => console.error("Autoplay blocked:", err));
 });
 
 window.addEventListener("mouseup", () =>{
@@ -126,4 +128,3 @@ function animate() {
 
 init();
 animate();
-bgm.play();
