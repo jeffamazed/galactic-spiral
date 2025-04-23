@@ -65,7 +65,7 @@ class Particles {
     c.beginPath();
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     c.shadowColor = this.color;
-    c.shadowBlur = 10;
+    c.shadowBlur = this.radius < 2 ? 10 : 15;
     c.fillStyle = this.color;
     c.fill();
     c.closePath();
@@ -82,7 +82,7 @@ function init() {
     const offset = 80;
     const x = randomFloatFromRange(-canvas.width - offset, canvas.width + offset);
     const y = randomFloatFromRange(-canvas.height - offset, canvas.height + offset);
-    const radius = randomFloatFromRange(1, 2.5);
+    const radius = randomIntFromRange(1, 2);
     const color = randomColor(colorsCollection);
 
     particles.push(
